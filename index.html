@@ -2945,10 +2945,10 @@ var GEMWAIT=false;
 document.addEventListener("visibilitychange",function(){
   if(document.visibilityState!=="visible"||!GEMWAIT||!window.api)return;
   var k=0,t=setInterval(function(){
-    window.api("game_state",{}).then(function(st){applyServer(st);save();render()}).catch(function(){});
+    window.api("game_state",{}).then(function(st){applyServer(st);save();render();vipSync()}).catch(function(){});
     if(++k>=4){clearInterval(t);GEMWAIT=false}
   },4000);
-  window.api("game_state",{}).then(function(st){applyServer(st);save();render()}).catch(function(){});
+  window.api("game_state",{}).then(function(st){applyServer(st);save();render();vipSync()}).catch(function(){});
 });
 function storeScreen(tab){
   STORETAB=tab||STORETAB;
